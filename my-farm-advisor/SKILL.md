@@ -30,7 +30,7 @@ Open the subtree index that matches the request:
 
 - [Admin](admin/INDEX.md)
 - [Data Sources](data-sources/INDEX.md)
-- [Grower Web Map](grower-web-map/INDEX.md)
+- [Grower Web Map](data-pipeline/grower-web-map/INDEX.md)
 - [EDA](eda/INDEX.md)
 - [Field Management](field-management/INDEX.md)
 - [Imagery](imagery/INDEX.md)

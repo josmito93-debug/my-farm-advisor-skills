@@ -110,7 +110,14 @@ def _query_overpass_bbox(bbox: tuple[float, float, float, float]) -> dict:
     for endpoint in OVERPASS_URLS:
         for attempt in range(1, 4):
             try:
-                response = requests.post(endpoint, data={"data": query}, timeout=240)
+                response = requests.post(
+                    endpoint,
+                    data={"data": query},
+                    headers={
+                        "User-Agent": "my-farm-advisor/1.0 (data-pipeline; bootstrap_farm_from_county)"
+                    },
+                    timeout=240,
+                )
                 response.raise_for_status()
                 return response.json()
             except Exception as exc:
@@ -181,10 +188,15 @@ def _osm_elements_to_fields(
     return gdf
 
 
-def _sample_fields(gdf: gpd.GeoDataFrame, *, count: int, seed: int) -> gpd.GeoDataFrame:
+def _sample_fields(
+    gdf: gpd.GeoDataFrame, *, count: int, seed: int, min_acres: float = 0.5
+) -> gpd.GeoDataFrame:
     if gdf.empty:
         return gdf
-    ranked = gdf.sort_values(["area_acres", "field_id"], ascending=[False, True]).reset_index(
+    eligible = gdf[gdf["area_acres"] >= min_acres].copy()
+    if eligible.empty:
+        return eligible
+    ranked = eligible.sort_values(["area_acres", "field_id"], ascending=[False, True]).reset_index(
         drop=True
     )
     if len(ranked) <= count:
@@ -280,6 +292,12 @@ def main() -> None:
     parser.add_argument("--county-name", required=True, help="County name, e.g. Boone")
     parser.add_argument("--count", type=int, default=4, help="Number of fields to sample")
     parser.add_argument("--seed", type=int, default=42, help="Deterministic seed")
+    parser.add_argument(
+        "--min-acres",
+        type=float,
+        default=0.5,
+        help="Minimum field area in acres when sampling new fields",
+    )
     parser.add_argument("--grower-slug", required=True)
     parser.add_argument("--farm-slug", required=True)
     parser.add_argument("--farm-name", required=True)
@@ -322,9 +340,13 @@ def main() -> None:
         county_fips=county_fips,
         county_name=county_name,
     )
-    sampled = _sample_fields(fields, count=args.count, seed=args.seed)
+    sampled = _sample_fields(
+        fields, count=args.count, seed=args.seed, min_acres=args.min_acres
+    )
     if sampled.empty:
-        raise RuntimeError("No eligible farmland polygons found for requested county")
+        raise RuntimeError(
+            f"No farmland polygons >= {args.min_acres} acres found for requested county"
+        )
 
     default_inventory = (
         farm_manifest_dir(args.grower_slug, args.farm_slug) / "field-inventory.csv"

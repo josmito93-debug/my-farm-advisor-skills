@@ -281,6 +281,21 @@ The umbrella entrypoint is [`SKILL.md`](SKILL.md). From there, the skill routes 
 | Strategy         | Crop strategy and maturity planning workflows                          | [`strategy/INDEX.md`](strategy/INDEX.md)                 |
 | Weather          | NASA POWER weather ingestion and downstream weather analysis           | [`weather/INDEX.md`](weather/INDEX.md)                   |
 
+### Custom EDA skill: `eda-multigrower`
+
+[`eda/eda-multigrower/`](eda/eda-multigrower/GUIDE.md) adds a field-level,
+multi-grower EDA workflow. It reads field boundaries, NASA POWER weather, and
+USDA CDL from the runtime, then writes six statistical figures (two per
+category), three comparison/correlation tables, one static three-state
+geospatial map, and a self-contained single-page HTML report.
+
+Committed figures, analysis tables, and the report live in
+[`eda/eda-multigrower/examples/output/`](eda/eda-multigrower/examples/output/).
+Regenerate them with
+[`data-pipeline/src/scripts/reporting/generate_eda_multigrower.py`](data-pipeline/src/scripts/reporting/generate_eda_multigrower.py);
+the reference dataset and county-selection provenance are under
+[`eda/eda-multigrower/references/`](eda/eda-multigrower/references/).
+
 ## Typical Workflow
 
 ```mermaid

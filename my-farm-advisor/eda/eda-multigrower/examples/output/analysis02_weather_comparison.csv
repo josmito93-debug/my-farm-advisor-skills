@@ -1,0 +1,21 @@
+test,comparison,metric,statistic,p_value,effect_size,n,detail
+spearman_correlation,IL,seasonal_gdd_vs_precip,0.6146,2.049537532320007e-06,0.6146,50,"field-year pairs, 2021-2025"
+spearman_correlation,IA,seasonal_gdd_vs_precip,-0.8518,4.471025601160333e-15,-0.8518,50,"field-year pairs, 2021-2025"
+spearman_correlation,NE,seasonal_gdd_vs_precip,-0.5734,1.3459171914379045e-05,-0.5734,50,"field-year pairs, 2021-2025"
+kruskal_wallis,all growers,seasonal_gdd,125.4033,5.875103324486e-28,,150,field-year seasonal GDD
+kruskal_wallis,all growers,seasonal_precip,33.605,5.043886663861261e-08,,150,field-year seasonal precipitation
+yearly_mean,IA 2021,seasonal_gdd,1800.0,,,50,seasonal precip 461.9 mm
+yearly_mean,IA 2022,seasonal_gdd,1709.6,,,50,seasonal precip 463.4 mm
+yearly_mean,IA 2023,seasonal_gdd,1820.1,,,50,seasonal precip 417.9 mm
+yearly_mean,IA 2024,seasonal_gdd,1634.2,,,50,seasonal precip 786.3 mm
+yearly_mean,IA 2025,seasonal_gdd,1695.6,,,50,seasonal precip 688.9 mm
+yearly_mean,IL 2021,seasonal_gdd,1877.3,,,50,seasonal precip 600.2 mm
+yearly_mean,IL 2022,seasonal_gdd,1820.8,,,50,seasonal precip 475.3 mm
+yearly_mean,IL 2023,seasonal_gdd,1828.7,,,50,seasonal precip 439.1 mm
+yearly_mean,IL 2024,seasonal_gdd,1881.7,,,50,seasonal precip 624.3 mm
+yearly_mean,IL 2025,seasonal_gdd,1888.5,,,50,seasonal precip 540.9 mm
+yearly_mean,NE 2021,seasonal_gdd,1976.3,,,50,seasonal precip 413.7 mm
+yearly_mean,NE 2022,seasonal_gdd,2043.6,,,50,seasonal precip 408.3 mm
+yearly_mean,NE 2023,seasonal_gdd,2112.2,,,50,seasonal precip 353.1 mm
+yearly_mean,NE 2024,seasonal_gdd,2032.1,,,50,seasonal precip 473.0 mm
+yearly_mean,NE 2025,seasonal_gdd,1987.6,,,50,seasonal precip 569.9 mm

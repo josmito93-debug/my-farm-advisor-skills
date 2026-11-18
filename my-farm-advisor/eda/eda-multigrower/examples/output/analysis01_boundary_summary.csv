@@ -1,0 +1,6 @@
+,area_acres,area_acres,area_acres,area_acres,area_acres,perimeter_km,perimeter_km,perimeter_km,perimeter_km,perimeter_km,polsby_popper,polsby_popper,polsby_popper,polsby_popper,polsby_popper,shape_index,shape_index,shape_index,shape_index,shape_index
+,median,mean,std,min,max,median,mean,std,min,max,median,mean,std,min,max,median,mean,std,min,max
+grower,,,,,,,,,,,,,,,,,,,,
+IA,149.755,147.485,132.91,6.05,453.21,3.238,3.224,1.861,0.712,6.776,0.608,0.595,0.144,0.33,0.785,1.282,1.326,0.183,1.128,1.739
+IL,59.33,148.797,183.757,3.23,612.45,2.37,3.168,2.007,0.517,6.558,0.619,0.587,0.138,0.394,0.748,1.272,1.332,0.168,1.156,1.594
+NE,74.14,105.997,79.599,40.08,299.02,2.586,2.73,0.908,1.604,4.729,0.691,0.657,0.125,0.454,0.792,1.203,1.251,0.131,1.124,1.484

@@ -1,0 +1,9 @@
+test,metric,group_a,group_b,n_a,n_b,statistic,p_value,p_adjusted,effect_size,interpretation
+kruskal_wallis,area_acres,all growers,,30,0,0.2658,0.8755498186366444,0.8755498186366444,,no detectable difference across growers
+mann_whitney_u,area_acres,IL,IA,10,10,49.0,0.9698499769931556,1.0,0.02,IL vs IA: not significant after correction
+mann_whitney_u,area_acres,IL,NE,10,10,49.0,0.9698499769931556,1.0,0.02,IL vs NE: not significant after correction
+mann_whitney_u,area_acres,IA,NE,10,10,60.0,0.47267559351158717,1.0,-0.2,IA vs NE: not significant after correction
+kruskal_wallis,polsby_popper,all growers,,30,0,1.5587,0.4587018525413633,0.4587018525413633,,no detectable difference across growers
+mann_whitney_u,polsby_popper,IL,IA,10,10,49.0,0.9698499769931556,0.9698499769931556,0.02,IL vs IA: not significant after correction
+mann_whitney_u,polsby_popper,IL,NE,10,10,33.0,0.21229383619233155,0.6368815085769947,0.34,IL vs NE: not significant after correction
+mann_whitney_u,polsby_popper,IA,NE,10,10,39.0,0.4273553138978077,0.8547106277956154,0.22,IA vs NE: not significant after correction

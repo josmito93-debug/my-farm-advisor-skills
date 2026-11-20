@@ -1,0 +1,9 @@
+test,comparison,metric,statistic,p_value,effect_size,n,detail
+chi_square,crop mix across growers,dominant_crop,10.1276,0.038331553937094344,0.1837,150,dof=4; field-year dominant CDL class
+spearman_correlation,all growers,corn_share_vs_gdd,0.2072,0.05008033629939909,0.2072,90,field-years where CDL and weather both cover the year (2021-2023)
+spearman_correlation,IL,corn_share_vs_gdd,0.2074,0.2713842197859479,0.2074,30,"field-years, 2021-2023 overlap"
+spearman_correlation,IA,corn_share_vs_gdd,0.1577,0.4053523181166498,0.1577,30,"field-years, 2021-2023 overlap"
+spearman_correlation,NE,corn_share_vs_gdd,0.148,0.4351167140930776,0.148,30,"field-years, 2021-2023 overlap"
+yearly_mean,IL,corn_share,52.1,,,50,"mean percent of field area in corn, 2019-2023"
+yearly_mean,IA,corn_share,53.0,,,50,"mean percent of field area in corn, 2019-2023"
+yearly_mean,NE,corn_share,72.8,,,50,"mean percent of field area in corn, 2019-2023"

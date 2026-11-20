@@ -90,6 +90,9 @@ script prints a JSON summary with field counts, report path, and output sizes.
 | `dataset_field_summary.csv` | Dataset | Field | Area, perimeter, compactness, shape index |
 | `eda_multigrower_report.html` | Report | All levels | Single-page report with inline figures and tables |
 
+Column definitions for every table are in
+[`references/data-dictionary.md`](references/data-dictionary.md).
+
 ## Analysis Design
 
 - **Boundaries.** Area and Polsby-Popper compactness per field, computed in

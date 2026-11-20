@@ -852,6 +852,8 @@ def boundary_analysis(growers: list[GrowerData]) -> tuple[pd.DataFrame, pd.DataF
         .agg(["median", "mean", "std", "min", "max"])
         .round(3)
     )
+    summary.columns = [f"{metric}_{stat}" for metric, stat in summary.columns]
+    summary.index.name = "grower"
     return fields, tests, summary
 
 
@@ -1092,9 +1094,9 @@ def write_report(
             "1. Field size distribution",
             "Areas span three orders of magnitude and the distributions overlap heavily, so the "
             f"cross-grower Kruskal-Wallis result is not significant (p={boundary_kw['p_value']:.2f}). "
-            f"Medians differ (IL {boundary_summary.loc['IL', ('area_acres', 'median')]:.0f} ac, "
-            f"IA {boundary_summary.loc['IA', ('area_acres', 'median')]:.0f} ac, "
-            f"NE {boundary_summary.loc['NE', ('area_acres', 'median')]:.0f} ac) but a "
+            f"Medians differ (IL {boundary_summary.loc['IL', 'area_acres_median']:.0f} ac, "
+            f"IA {boundary_summary.loc['IA', 'area_acres_median']:.0f} ac, "
+            f"NE {boundary_summary.loc['NE', 'area_acres_median']:.0f} ac) but a "
             f"{smallest['area_acres']:.1f}-acre {smallest['grower']} meadow polygon and a "
             f"{largest['area_acres']:.0f}-acre {largest['grower']} field drive the tails. "
             "Compare acre-weighted totals, not field counts.",
@@ -1209,6 +1211,10 @@ def write_report(
   <p class="card">Field polygons come from OpenStreetMap/Overpass through the data pipeline county bootstrap.
   Weather is NASA POWER daily data sampled at each field centroid. Cropland classes are USDA CDL 30 m
   compositions per field-year. Soil is intentionally out of scope for this assignment.</p>
+  <p class="card">The Nebraska site is York County, a corn/soybean center-pivot county: it ranked first of
+  93 Nebraska counties for corn+soybean share of cropland (85.2%). The sampled OSM parcels are
+  section-line rectangles rather than pivot circles, so pivot irrigation is described at county level
+  rather than drawn per field.</p>
 
   <h2>Spatial context</h2>
   <section class="card">
